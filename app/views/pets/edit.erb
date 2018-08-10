@@ -1,3 +1,41 @@
-<h1>Update Pet</h1>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Update Pet</title>
+</head>
+<body>
+  <h1>Update Pet</h1>
+  
+  <form action="/pets/<%=@pet.id%>" method="post">
+    <label for="">Name:</label>
+    <br></br>
+    
+    <input type="text" name="pet[name]" id="pet_name" value="<%=@pet.name%>">
+    
+    <br></br>
+    
+    <label for="">Choose an existing owner:</label>
+    
+    <% @owners.each do |owner| %>
+      <input type="checkbox" name="pet[owner_id]" value="<%=owner.id%>" id="<%=owner.id%>"><%=owner.name%>><</input>
+    <% end %>
+    
+    <br></br>
+    
+    <label for="">and/or create a new owner:</label>
+    
+    <br></br>
+    
+    <label for="">name:</label>
+      <input type="text" name="owner[name]" id="owner_name"></input>
+      
+    <br></br>
+    
+    <input type="submit" value="Create Pet">
+  </form>
+</body>
+</html>
 
